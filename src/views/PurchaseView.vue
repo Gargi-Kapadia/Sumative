@@ -23,10 +23,10 @@ const getMovies = async () => {
   console.log(movies.value);
   console.log(response.value);
   response.value = (
-    await getData(`https://api.themoviedb.org/3/trending/movie/week`, {
+    await getData(`https://api.themoviedb.org/3/discover/movie`, {
       params: {
         api_key: "354ab13223b58e3243b70a0085da1b2e",
-        append_to_response: "videos",
+        with_genres: "id"
       },
     })
   ).data["results"];
