@@ -43,6 +43,13 @@ const getData = async (url, params) => {
 
 <template>
   <h1 id="movies">Movies</h1>
+  <select id="genre" v-modal="genre">
+ <option id="28">Action</option> 
+ <option id="12">Adventure</option>
+ <option id="10751">Family</option>
+ <option id="9648">Mystery</option>
+ <option id="10402">Music</option> 
+  </select>
   <div v-if="getMovies()" v-for="result in response" class="Movies-contanier">
     <img
       @click="openModal(result.id)"
