@@ -23,10 +23,10 @@ const getMovies = async () => {
   console.log(movies.value);
   console.log(response.value);
   response.value = (
-    await getData(`https://api.themoviedb.org/3/discover/movie`, {
+    await getData(`https://api.themoviedb.org/3/trending/movie/week`, {
       params: {
         api_key: "354ab13223b58e3243b70a0085da1b2e",
-        with_genres: "id"
+        append_to_response: "videos",
       },
     })
   ).data["results"];
@@ -39,18 +39,13 @@ const getData = async (url, params) => {
     console.log(error);
   }
 };
+
+await getMovies();
 </script>
 
 <template>
   <h1 id="movies">Movies</h1>
-  <select id="genre" v-modal="genre">
- <option id="28">Action</option> 
- <option id="12">Adventure</option>
- <option id="10751">Family</option>
- <option id="9648">Mystery</option>
- <option id="10402">Music</option> 
-  </select>
-  <div v-if="getMovies()" v-for="result in response" class="Movies-contanier">
+  <div v-for="result in response" class="Movies-contanier">
     <img
       @click="openModal(result.id)"
       v-bind:src="'https://image.tmdb.org/t/p/w500' + result.poster_path"
@@ -89,4 +84,3 @@ h1 {
   padding-top: 60px;
 }
 </style>
-
