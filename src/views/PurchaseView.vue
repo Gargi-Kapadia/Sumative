@@ -3,9 +3,14 @@ import SiteFooter from "../components/SiteFooter.vue";
 import SiteModal from "../components/SiteModal.vue";
 import { ref } from "vue";
 import axios from "axios";
+import { useStore } from "../store/index.js"
 
+const store = useStore();
 const showModal = ref(false);
 const selectedId = ref(0);
+// const movies = ref("");
+const response = ref();
+const genre = ref(35);
 
 const openModal = (id) => {
   showModal.value = true;
@@ -16,40 +21,47 @@ const closeModal = () => {
   showModal.value = false;
 };
 
-const movies = ref("");
-const response = ref(null);
+const getGenres = async () => {
+  await store.getMovies(genre.value);
+}
 
-const getMovies = async () => {
-  console.log(movies.value);
-  console.log(response.value);
-  response.value = (
-    await getData(`https://api.themoviedb.org/3/trending/movie/week`, {
-      params: {
-        api_key: "354ab13223b58e3243b70a0085da1b2e",
-        append_to_response: "videos",
-      },
-    })
-  ).data["results"];
-};
+// const getMovies = async () => {
+//   console.log(movies.value);
+//   console.log(response.value);
+//   response.value = (
+//     await getData(`https://api.themoviedb.org/3/trending/movie/week`, {
+//       params: {
+//         api_key: "354ab13223b58e3243b70a0085da1b2e",
+//         append_to_response: "videos",
+//       },
+//     })
+//   ).data["results"];
+// };
 
-const getData = async (url, params) => {
-  try {
-    return await axios.get(url, params);
-  } catch (error) {
-    console.log(error);
-  }
-};
+// const getData = async (url, params) => {
+//   try {
+//     return await axios.get(url, params);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
-await getMovies();
+// await getMovies();
+
 </script>
 
 <template>
   <h1 id="movies">Movies</h1>
-  <div v-for="result in response" class="Movies-contanier">
-    <img
-      @click="openModal(result.id)"
-      v-bind:src="'https://image.tmdb.org/t/p/w500' + result.poster_path"
-    />
+  <select v-model="genre" @change="getGenres()">
+    <option value="35">Comedy</option>
+    <option value="12">Family</option>
+    <option value="16">Animation</option>
+    <option value="35">Adventure</option>
+    <option value="18">Drama</option>
+  </select>
+  <div class="Movies-contanier">
+    <img v-for="movie in store.movies" :id="movie.id" @click="openModal(movie.id)"
+      :src="`https://image.tmdb.org/t/p/w500${movie.poster}`" />
     <SiteModal v-if="showModal" @toggleModal="closeModal()" :id="selectedId" />
   </div>
   <div class="footer">
@@ -59,25 +71,33 @@ await getMovies();
 
 <style>
 .Movies-contanier {
-  display: flex;
-  display: inline-grid;
-  align-content: space-evenly;
-  padding: 10px;
-  gap: 10px;
-  margin-bottom: -300px;
-  padding-bottom: -50px;
-  margin-right: -10px;
-  margin-left: 15px;
+  display: grid;
+  grid-template-columns: 350px 350px 350px 350px ;
+  align-content: center, space-evenly;
+  gap: 5px;
+  padding-left: 45px;
+  padding-bottom: 50px;
+  margin-bottom: -120px;
+}
+select {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 30px;
+  margin-left:44% ;
+  border-radius: 1rem;
 }
 img {
-  height: 50%;
+  height: 500px;
+  aspect-ratio: 2/3;
   border-radius: 1rem;
-  padding: 10px;
   cursor: pointer;
+  margin-bottom: 15px;
 }
 h1 {
   text-align: center;
-  font-size: 100px;
+  font-size: 200px;
+  margin: 0px;
+  margin-top: 10px;
 }
 .footer {
   text-align: center;
