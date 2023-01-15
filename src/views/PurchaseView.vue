@@ -91,26 +91,20 @@ display: block;
 }
 .Movies-contanier {
   display: grid;
-  grid-template-columns: 350px 350px 350px 350px ;
+  grid-template-columns: 325px 325px 325px 325px ;
   align-content: center, space-evenly;
   gap: 5px;
-  padding-left: 45px;
+  padding-left: 75px;
   padding-bottom: 50px;
   margin-bottom: -120px;
 }
-/* select {
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 30px;
-  margin-left:44% ;
-  border-radius: 1rem;
-} */
+
 select {
   background-color: gray;
   border: transparent;
 }
 img {
-  height: 500px;
+  height: 425px;
   aspect-ratio: 2/3;
   border-radius: 1rem;
   cursor: pointer;
