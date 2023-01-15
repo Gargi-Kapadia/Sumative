@@ -1,5 +1,6 @@
 <script setup>
 import axios from "axios";
+import { ref } from "vue";
 import { useStore } from "../store/index.js";
 
 const store = useStore();
@@ -10,10 +11,11 @@ let data = (
   await axios.get(`https://api.themoviedb.org/3/movie/${props.id}`, {
     params: {
       api_key: "354ab13223b58e3243b70a0085da1b2e",
-      // append_to_response: "videos",
-    },
-  })
-).data;
+       append_to_response: "videos",
+      }
+      
+    })).data
+
 // const getMovie = async (movies) => {
 //   response.value = (
 //     await getData(`https://api.themoviedb.org/3/movie/${movies}`, {
@@ -49,7 +51,7 @@ let data = (
             })
           "
           >Purchase</button>
-          <a :href="`https://www.youtube.com/embed/${video}`" target="_blank"
+          <a :href="`https://www.youtube.com/embed/${data.video}`" target="_blank"
             >Movie Trailer!</a
           >
         </h2>

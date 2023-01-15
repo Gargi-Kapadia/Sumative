@@ -51,7 +51,8 @@ const getGenres = async () => {
    <RouterLink to="/cart" custom v-slot="{ navigate }">
     <button @click="navigate" role="link">Cart</button>
   </RouterLink>
-  <h1 id="movies">Movies</h1>
+    <div class="sidebar">
+<div class="sidebar"> 
   <select v-model="genre" @change="getGenres()">
     <option value="35">Comedy</option>
     <option value="10751">Family</option>
@@ -59,6 +60,9 @@ const getGenres = async () => {
     <option value="12">Adventure</option>
     <option value="14">Fantasy</option>
   </select>
+  </div>
+</div>
+  <h1 id="movies">Movies</h1>
   <div class="Movies-contanier">
     <img v-for="movie in store.movies" :id="movie.id" @click="openModal(movie.id)"
       :src="`https://image.tmdb.org/t/p/w500${movie.poster}`" />
@@ -70,6 +74,21 @@ const getGenres = async () => {
 </template>
 
 <style>
+.sidebar {
+height: 100%;
+width: 150px;
+position: fixed;
+left: 0;
+top: 0;
+padding-top: 40px;
+background-color: gray;
+}
+
+.sidebar div, select {
+padding: 8px;
+font-size: 24px;
+display: block;
+}
 .Movies-contanier {
   display: grid;
   grid-template-columns: 350px 350px 350px 350px ;
@@ -79,12 +98,16 @@ const getGenres = async () => {
   padding-bottom: 50px;
   margin-bottom: -120px;
 }
-select {
+/* select {
   margin-bottom: 20px;
   text-align: center;
   font-size: 30px;
   margin-left:44% ;
   border-radius: 1rem;
+} */
+select {
+  background-color: gray;
+  border: transparent;
 }
 img {
   height: 500px;
