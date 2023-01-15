@@ -9,20 +9,27 @@ export const useStore = defineStore('store', {
     }
   },
   actions: {
-      async getMovies(id) {
-          let data = (await axios.get("https://api.themoviedb.org/3/discover/movie", {
-              params: {
+    async getMovies(id) {
+      let data = (await axios.get("https://api.themoviedb.org/3/discover/movie", {
+        params: {
           api_key: "354ab13223b58e3243b70a0085da1b2e",
           with_genres: id,
           include_adult: false,
         }
-    })).data.results;
-    
+      })).data.results;
+      
       this.movies = data.map((movie) => {
         return {
           id: movie.id,
           poster: movie.poster_path,
         }
       });
-    }}
-  });
+    },
+    addToCart(id, data) {
+      this.cart.set(id, data);
+    },
+    removeFromCart(id) {
+      this.cart.delete(id);
+    }
+  }
+});

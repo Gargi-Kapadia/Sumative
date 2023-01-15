@@ -2,14 +2,11 @@
 import SiteFooter from "../components/SiteFooter.vue";
 import SiteModal from "../components/SiteModal.vue";
 import { ref } from "vue";
-import axios from "axios";
 import { useStore } from "../store/index.js"
 
 const store = useStore();
 const showModal = ref(false);
 const selectedId = ref(0);
-// const movies = ref("");
-const response = ref();
 const genre = ref(35);
 
 const openModal = (id) => {
@@ -51,13 +48,16 @@ const getGenres = async () => {
 </script>
 
 <template>
+   <RouterLink to="/cart" custom v-slot="{ navigate }">
+    <button @click="navigate" role="link">Cart</button>
+  </RouterLink>
   <h1 id="movies">Movies</h1>
   <select v-model="genre" @change="getGenres()">
     <option value="35">Comedy</option>
-    <option value="12">Family</option>
+    <option value="10751">Family</option>
     <option value="16">Animation</option>
-    <option value="35">Adventure</option>
-    <option value="18">Drama</option>
+    <option value="12">Adventure</option>
+    <option value="14">Fantasy</option>
   </select>
   <div class="Movies-contanier">
     <img v-for="movie in store.movies" :id="movie.id" @click="openModal(movie.id)"
