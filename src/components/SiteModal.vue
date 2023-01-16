@@ -25,6 +25,7 @@ response.value = (
     },
   })
 ).data;
+video.value = response.value.videos.results.filter((video) => video.type === "Trailer").at(0).key;
 </script>
 
 <template>
