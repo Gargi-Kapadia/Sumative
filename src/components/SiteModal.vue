@@ -3,33 +3,28 @@ import axios from "axios";
 import { ref } from "vue";
 import { useStore } from "../store/index.js";
 
+const response = ref(null);
+const video = ref(null);
 const store = useStore();
 const props = defineProps(["id"]);
 const emits = defineEmits(["toggleModal"]);
 
-let data = (
-  await axios.get(`https://api.themoviedb.org/3/movie/${props.id}`, {
+const getData = async (url, params) => {
+  try {
+    return await axios.get(url, params);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+response.value = (
+  await getData(`https://api.themoviedb.org/3/movie/${props.id}`, {
     params: {
       api_key: "354ab13223b58e3243b70a0085da1b2e",
-       append_to_response: "videos",
-      }
-      
-    })).data
-
-// const getMovie = async (movies) => {
-//   response.value = (
-//     await getData(`https://api.themoviedb.org/3/movie/${movies}`, {
-//       params: {
-//         api_key: "354ab13223b58e3243b70a0085da1b2e",
-//         append_to_response: "videos",
-//       },
-//     })
-//   ).data;
-//   video.value = response.value.videos.results
-//     .filter((video) => video.type === "Trailer")
-//     .at(0).key;
-// };
-
+      append_to_response: "videos",
+    },
+  })
+).data;
 </script>
 
 <template>
@@ -37,21 +32,23 @@ let data = (
     <div class="modal-outer-container" @click.self="emits('toggleModal')">
       <div class="modal-inner-container">
         <button class="close-button" @click="emits('toggleModal')">X</button>
-        <h1 id="title">Title: {{ data.title }}</h1>
-        <p id="release_date">Release date: {{ data.release_date }}</p>
-        <p id="overview">Overview: {{ data.overview }}</p>
+        <h1 id="title">Title: {{ response.title }}</h1>
+        <p id="release_date">Release date: {{ response.release_date }}</p>
+        <p id="overview">Overview: {{ response.overview }}</p>
         <h2>
-        <button
-        @click="
-            store.addToCart(props.id, {
-              id: data.id,
-              poster: data.poster_path,
-              title: data.title,
-              date: data.release_date,
-            })
-          "
-          >Purchase</button>
-          <a :href="`https://www.youtube.com/embed/${data.video}`" target="_blank"
+          <button
+            @click="
+              store.addToCart(props.id, {
+                id: response.id,
+                poster: response.poster_path,
+                title: response.title,
+                date: response.release_date,
+              })
+            "
+          >
+            Purchase
+          </button>
+          <a :href="`https://www.youtube.com/embed/${video}`" target="_blank"
             >Movie Trailer!</a
           >
         </h2>

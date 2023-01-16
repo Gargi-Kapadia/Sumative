@@ -22,29 +22,6 @@ const getGenres = async () => {
   await store.getMovies(genre.value);
 }
 
-// const getMovies = async () => {
-//   console.log(movies.value);
-//   console.log(response.value);
-//   response.value = (
-//     await getData(`https://api.themoviedb.org/3/trending/movie/week`, {
-//       params: {
-//         api_key: "354ab13223b58e3243b70a0085da1b2e",
-//         append_to_response: "videos",
-//       },
-//     })
-//   ).data["results"];
-// };
-
-// const getData = async (url, params) => {
-//   try {
-//     return await axios.get(url, params);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// await getMovies();
-
 </script>
 
 <template>
