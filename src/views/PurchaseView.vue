@@ -25,11 +25,12 @@ const getGenres = async () => {
 </script>
 
 <template>
-   <RouterLink to="/cart" custom v-slot="{ navigate }">
-    <button @click="navigate" role="link">Cart</button>
-  </RouterLink>
-    <div class="sidebar">
 <div class="sidebar"> 
+  <i class="fad fa-laugh-wink"></i>
+   <RouterLink to="/cart" custom v-slot="{ navigate }">
+    <button @click="navigate" role="link">
+   </button>
+  </RouterLink>
   <select v-model="genre" @change="getGenres()">
     <option value="35">Comedy</option>
     <option value="10751">Family</option>
@@ -38,7 +39,6 @@ const getGenres = async () => {
     <option value="14">Fantasy</option>
   </select>
   </div>
-</div>
   <h1 id="movies">Movies</h1>
   <div class="Movies-contanier">
     <img v-for="movie in store.movies" :id="movie.id" @click="openModal(movie.id)"
@@ -52,19 +52,20 @@ const getGenres = async () => {
 
 <style>
 .sidebar {
-height: 100%;
-width: 150px;
+height: 30px;
+width: 100%;
 position: fixed;
 left: 0;
 top: 0;
-padding-top: 40px;
+padding: 20px;
 background-color: gray;
 }
 
 .sidebar div, select {
-padding: 8px;
-font-size: 24px;
-display: block;
+padding: 10px;
+text-align: center;
+font-size: 20px;
+display: inline;
 }
 .Movies-contanier {
   display: grid;
@@ -97,4 +98,5 @@ h1 {
   text-align: center;
   padding-top: 60px;
 }
+
 </style>
