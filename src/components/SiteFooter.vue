@@ -11,6 +11,7 @@ all your entertaniment needs.
 <!-- Add the style and icon you want using the String format -->
 <font-awesome-icon icon="fa-solid fa-user-secret" />
 <font-awesome-icon icon="fa-solid fa-cart-shopping" />
+<font-awesome-icon icon="fa-solid fa-house" />
 </div>
 </template>
 

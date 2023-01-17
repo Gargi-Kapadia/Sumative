@@ -5,11 +5,13 @@ import router from "./router/index.js"
 import { createPinia } from 'pinia';
 import { library } from '@fortawesome/fontawesome-svg-core' 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons' 
+import { faHome, faUserSecret } from '@fortawesome/free-solid-svg-icons' 
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons' 
+import { faHouse } from '@fortawesome/free-solid-svg-icons' 
 
 library.add(faUserSecret)
 library.add( faCartShopping)
+library.add( faHouse)
 
 const pinia = createPinia();
 

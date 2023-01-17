@@ -25,10 +25,18 @@ const getGenres = async () => {
 </script>
 
 <template>
+
 <div class="sidebar"> 
-  <i class="fad fa-laugh-wink"></i>
+
    <RouterLink to="/cart" custom v-slot="{ navigate }">
     <button @click="navigate" role="link">
+      <font-awesome-icon icon="fa-solid fa-cart-shopping" size="lg"/>
+   </button>
+  </RouterLink>
+
+  <RouterLink to="/" custom v-slot="{ navigate }">
+    <button @click="navigate" role="link">
+      <font-awesome-icon icon="fa-solid fa-house" />
    </button>
   </RouterLink>
   <select v-model="genre" @change="getGenres()">
@@ -98,5 +106,7 @@ h1 {
   text-align: center;
   padding-top: 60px;
 }
-
+button {
+  background-color: transparent;
+}
 </style>
