@@ -1,7 +1,7 @@
  :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
-  line-height: 24px;
+  /* line-height: 24px; */
   font-weight: 400;
 
   color-scheme: light dark;
@@ -15,11 +15,11 @@
   -webkit-text-size-adjust: 100%;
 }
 
-h1 {
+/* h1 {
   font-size: 3.2em;
   line-height: 1.1;
   color: #fdfdfd;
-}
+} */
 
 button, .submit {
   border-radius: 8px;
@@ -41,9 +41,9 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
- .card {
+ /* .card {
   padding: 2em;
-}
+} */
 
  /* #app {
   max-width: 1280px;

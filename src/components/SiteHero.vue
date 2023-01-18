@@ -3,30 +3,37 @@
 
 <template>
     <div class="image-container">
-    <h2 class="text-overlay">The website for all your movie needs.</h2>
- <img src="https://fasnetcinema.com/wp-content/uploads/2022/07/fall-movies-index-1628968089.jpg"  />
+    <h2 class="text-overlay">The best streaming platform to bring the movies to your couch. 
+    With 250+ Tv Shows, Videos, and Movies to choose from.</h2>
+ <img src="https://img.freepik.com/free-vector/movie-cinema-icons_23-2147495008.jpg"  />
  </div>
 
 </template>
 
 <style scoped>
  img {
-    width: 119%;
-    background-repeat: no-repeat;
-    object-fit: cover;
-    margin-left: -120px;
+    width: 45%;
+    height: 535px;
+    float: right;
+    margin-top: -50px;
+    border-radius: 0%;
+
  }
 .image-container {
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0), #213547);
     position: relative;
+    padding-bottom: 500px;
+    padding-top: 60px;
+    background-color: #50757d;
 }
 .text-overlay {
-    color: #213547;
+    width: 50%;
+    color: #ffffff;
     position: absolute;
     top: 20px;
     font-size:50px;
     padding-bottom: 50px;
     padding-top: 50px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 25px;
 }
+
 </style>

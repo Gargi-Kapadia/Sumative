@@ -7,30 +7,42 @@ router.push("/Login");
 </script>
 
 <template>
-<div>
-<h1>Movies.CO</h1>
+ <div class="image">
+ <div class="text">
+    <h1>MovieCo</h1>
 <button @click="button()" class="button">Login</button>
 </div>
+ <img src="https://images.squarespace-cdn.com/content/v1/57e05e534402434aa0f846c2/1498856270269-IQ53Z6S64R72PPTSM9K4/FEFHfuEb.jpeg?format=2500w"  />
+ </div>
 </template>
 
 <style scoped>
-div {
+img {
+    width: 100%;
+    height: 750px;
+    background-repeat: no-repeat;
+    object-fit: fill;
+    padding: 0px;
+    margin: 0px;
+
+ }
+.image {
+    position: relative;
+}
+.text {
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
     text-align: center;
+    margin: 0px;
+    padding: 335px;
+    padding-bottom: -55px;
+    margin-left: 0px;
+    margin-top: -125px;
 }
 .button {
-    background-color: lightgray;
-    margin-bottom: 50px;
-}
-h1 {
-    font-size: 100px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    text-align: center;
+    font-size: 30px;
+    margin-top: 15px;
+    position: relative;
+    background-color: #aad2f3;
 }
 </style>
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
