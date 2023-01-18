@@ -31,6 +31,7 @@ const login = () => {
 
 <style scoped>
 .login-container {
+  background-image: linear-gradient(to left, rgba(192, 74, 247, 0.11), #7bbaf1);
   background-color:	#213547;
   display: flex;
   flex-direction: column;

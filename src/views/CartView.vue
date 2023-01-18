@@ -15,7 +15,13 @@ const store = useStore();
 
 <style scoped>
 img {
+  display: inline;
   width: 200px;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 3 / 2;
+  padding: 50px;
+}
+h1 {
+  font-size: 50px;
+  margin-top: -150px;
 }
 </style>

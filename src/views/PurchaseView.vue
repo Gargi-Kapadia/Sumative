@@ -39,6 +39,7 @@ const getGenres = async () => {
       <font-awesome-icon icon="fa-solid fa-house" />
    </button>
   </RouterLink>
+  
   <select v-model="genre" @change="getGenres()">
     <option value="35">Comedy</option>
     <option value="10751">Family</option>
@@ -77,10 +78,10 @@ display: inline;
 }
 .Movies-contanier {
   display: grid;
-  grid-template-columns: 325px 325px 325px 325px ;
+  grid-template-columns: 300px 300px 300px 300px ;
   align-content: center, space-evenly;
   gap: 5px;
-  padding-left: 75px;
+  padding-left: 25px;
   padding-bottom: 50px;
   margin-bottom: -120px;
 }
@@ -90,7 +91,7 @@ select {
   border: transparent;
 }
 img {
-  height: 425px;
+  height: 400px;
   aspect-ratio: 2/3;
   border-radius: 1rem;
   cursor: pointer;

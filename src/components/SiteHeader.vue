@@ -36,7 +36,7 @@ img {
     margin: 0px;
     padding: 335px;
     padding-bottom: -55px;
-    margin-left: 0px;
+    margin-left: -100px;
     margin-top: -125px;
 }
 .button {
