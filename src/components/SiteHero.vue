@@ -20,7 +20,7 @@
 
  }
 .image-container {
-    background-image: linear-gradient(to left, rgba(255, 255, 255, 0), #213547);
+    background-image: linear-gradient(to left, transparent, #213547);
     position: relative;
     padding-bottom: 500px;
     padding-top: 60px;

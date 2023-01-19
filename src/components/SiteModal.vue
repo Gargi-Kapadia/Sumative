@@ -74,8 +74,8 @@ video.value = response.value.videos.results.filter((video) => video.type === "Tr
 .modal-outer-container .modal-inner-container {
   background-color: #091723;
   color: white;
-  width: clamp(280px, 100%, 800px);
-  height: 400px;
+  width: clamp(400px, 100%, 800px);
+  height: 500px;
   position: relative;
   border-radius: 5px;
 }
@@ -117,7 +117,6 @@ h1 {
 p {
   font-size: 18px;
   width: 50%;
-
 }
 img {
   display:inline-block;
@@ -125,7 +124,5 @@ img {
   aspect-ratio: 2/3;
   margin-top: -200px;
   margin-left: 500px;
-
-
 }
 </style>

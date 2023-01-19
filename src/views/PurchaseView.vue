@@ -70,7 +70,7 @@ select {
   text-align: center;
   font-size: 25px;
   border-radius: 5px;
-  margin-left: 650px;
+  margin-left: 550px;
   padding: 10px;
   margin-bottom: 20px;
   background-color: #aad2f3 ;
