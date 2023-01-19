@@ -25,21 +25,17 @@ const getGenres = async () => {
 </script>
 
 <template>
-
-<div class="sidebar"> 
-
    <RouterLink to="/cart" custom v-slot="{ navigate }">
-    <button @click="navigate" role="link">
-      <font-awesome-icon icon="fa-solid fa-cart-shopping" size="lg"/>
+    <button class="cart" @click="navigate" role="link">
+      <font-awesome-icon icon="fa-solid fa-cart-shopping" size="2x"/>
    </button>
   </RouterLink>
-
   <RouterLink to="/" custom v-slot="{ navigate }">
-    <button @click="navigate" role="link">
-      <font-awesome-icon icon="fa-solid fa-house" />
+    <button class="home" @click="navigate" role="link">
+      <font-awesome-icon icon="fa-solid fa-house" size="2x" />
    </button>
   </RouterLink>
-  
+  <h1 id="movies">Movies</h1>
   <select v-model="genre" @change="getGenres()">
     <option value="35">Comedy</option>
     <option value="10751">Family</option>
@@ -47,8 +43,6 @@ const getGenres = async () => {
     <option value="12">Adventure</option>
     <option value="14">Fantasy</option>
   </select>
-  </div>
-  <h1 id="movies">Movies</h1>
   <div class="Movies-contanier">
     <img v-for="movie in store.movies" :id="movie.id" @click="openModal(movie.id)"
       :src="`https://image.tmdb.org/t/p/w500${movie.poster}`" />
@@ -60,22 +54,7 @@ const getGenres = async () => {
 </template>
 
 <style>
-.sidebar {
-height: 30px;
-width: 100%;
-position: fixed;
-left: 0;
-top: 0;
-padding: 20px;
-background-color: gray;
-}
 
-.sidebar div, select {
-padding: 10px;
-text-align: center;
-font-size: 20px;
-display: inline;
-}
 .Movies-contanier {
   display: grid;
   grid-template-columns: 300px 300px 300px 300px ;
@@ -87,8 +66,15 @@ display: inline;
 }
 
 select {
-  background-color: gray;
   border: transparent;
+  text-align: center;
+  font-size: 25px;
+  border-radius: 5px;
+  margin-left: 650px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #aad2f3 ;
+
 }
 img {
   height: 400px;
@@ -109,5 +95,15 @@ h1 {
 }
 button {
   background-color: transparent;
+}
+
+.cart {
+  float: right;
+  padding-left: 10px;
+  color: aliceblue;
+}
+.home {
+  padding-left: 10px;
+  color: aliceblue;
 }
 </style>
