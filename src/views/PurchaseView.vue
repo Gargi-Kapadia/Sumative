@@ -35,7 +35,7 @@ const getGenres = async () => {
       <font-awesome-icon icon="fa-solid fa-house" size="2x" />
    </button>
   </RouterLink>
-  <h1 id="movies">Movies</h1>
+  <h1 id="movies"><font-awesome-icon icon="fa-solid fa-film" />Movies</h1>
   <select v-model="genre" @change="getGenres()">
     <option value="35">Comedy</option>
     <option value="10751">Family</option>

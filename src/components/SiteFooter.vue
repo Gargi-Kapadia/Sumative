@@ -18,5 +18,6 @@ p {
     padding: 40px;
     color: #fdfdfd;
     text-align: center;
+    font-size: 25px;
 }
 </style>

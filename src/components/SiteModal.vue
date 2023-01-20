@@ -77,14 +77,13 @@ video.value = response.value.videos.results.filter((video) => video.type === "Tr
   width: clamp(400px, 100%, 800px);
   height: 500px;
   position: relative;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .modal-outer-container .modal-inner-container .close-button {
   position: absolute;
   right: 0px;
   padding: 1rem;
   border: none;
-  background: #1f2123;
   font-weight: bold;
   font-size: 1.25rem;
   color: white;
@@ -113,16 +112,22 @@ h1 {
   background-color: white;
   width:50%
 }
-
+.close-button {
+  background-color: transparent;
+}
 p {
   font-size: 18px;
-  width: 50%;
+  width: 60%;
 }
 img {
   display:inline-block;
   height: 325px;
   aspect-ratio: 2/3;
   margin-top: -200px;
-  margin-left: 500px;
+  padding-left: 500px;
+  padding-top: 50px;
+  border-radius: 0px;
+  justify-content: center;
+
 }
 </style>

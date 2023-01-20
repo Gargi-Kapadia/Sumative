@@ -8,10 +8,14 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faHome, faUserSecret } from '@fortawesome/free-solid-svg-icons' 
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons' 
 import { faHouse } from '@fortawesome/free-solid-svg-icons' 
+import { faFilm } from '@fortawesome/free-solid-svg-icons' 
+import {  faCircleXmark } from '@fortawesome/free-solid-svg-icons' 
 
 library.add(faUserSecret)
 library.add( faCartShopping)
 library.add( faHouse)
+library.add( faFilm)
+library.add( faCircleXmark)
 
 const pinia = createPinia();
 

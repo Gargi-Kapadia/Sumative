@@ -7,9 +7,10 @@ const store = useStore();
 <template>
 <div v-for="movie in Array.from(store.cart.values())" >
 <img :src="`https://image.tmdb.org/t/p/w500${movie.poster}`" />
-    <h1 class="date">{{ movie.date }}</h1>
-    <h1 class="">{{ movie.title }}</h1>
-    <button class="remove" @click="store.removeFromCart(movie.id)">Remove</button>
+    <h2 class="date">Release Date: {{ movie.date }}</h2>
+    <h1>{{ movie.title }}</h1>
+    <button class="remove" @click="store.removeFromCart(movie.id)">
+    <font-awesome-icon icon=" fa-solid fa-circle-xmark" size="2x" /></button>
   </div>
 </template>
 
@@ -22,11 +23,19 @@ img {
 }
 h1 {
   font-size: 50px;
-  margin-top: -300px;
+  margin-top: -550px;
   padding: 0px;
   padding-left: 500px;
+  text-align: left;
+}
+h2 {
+  position: absolute;
+  padding: 0px;
+  padding-left: 700px;
   width: 50%;
-  word-break: break-all; 
+  margin-top: -530px;
+  text-align: right;
+  font-size: 30px;
 }
 .date {
 padding-top: -300px;
@@ -34,8 +43,9 @@ padding-top: -300px;
 .remove{
   float: right;
   margin-top: 400px;
-  background-color: white;
+  background-color: transparent;
   margin-bottom: 25px;
+  color: white;
 }
 div {
   padding-bottom: 500px;
